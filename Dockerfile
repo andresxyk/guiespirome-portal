@@ -22,7 +22,7 @@ RUN npm run build -- --configuration production --output-path=/dist
 # Stage 2: Serve app with nginx server
 
 # Use official nginx image as the base image
-FROM image-registry.openshift-image-registry.svc:5000/openshift/nginx-118:1-90
+FROM image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.20-ubi7
 
 # TEST
 USER root
