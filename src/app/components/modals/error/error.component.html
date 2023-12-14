@@ -1,0 +1,39 @@
+<!-- <div >
+    <div class="col-md-12 mensaje">
+        <div class="error" style="font-size: 16px; font-weight: bold;">{{estatus}} - {{mensaje}}</div>
+       
+        <div>Endpoint: {{descripcion}}</div>
+       
+       <div style="text-align: center;"> <b>Favor de reportarlo con el Administrador</b></div>
+    </div>
+    <div class="col-md-12 boton">
+        
+        <button class="btnVerde text-center" (click)="btnCerrar()"> 
+           Aceptar</button>
+    </div>
+
+</div> -->
+
+<mat-card class="example-card">
+
+    <mat-card-header class="header">
+     
+      <img class="custom-close-button" src="assets/icons/icon-normal-close.svg" width="15" height="15" (click)="cancelar()" >
+    </mat-card-header>
+  
+    <mat-card-content class="content">
+      <div *ngIf="mensaje" class="title " >{{estatus}} {{mensaje}}</div>
+      <div *ngIf="descripcion" class=" contenido" ><b>Servicio: </b> {{descripcion}}
+
+        <br/><b>Notifíque al administrador</b>
+      </div>
+    
+    </mat-card-content>
+  
+    <mat-card-actions class="foot-card ">
+      
+      <button  mat-stroked-button class="custom-load-btn" (click)="btnCerrar()" >Aceptar</button>
+    </mat-card-actions>
+ 
+  
+  </mat-card>

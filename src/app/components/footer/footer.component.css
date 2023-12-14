@@ -1,0 +1,11 @@
+.bg-footer{
+    background-color: var(--greenFooter);
+    min-height: 69px;
+    display: flex;
+    justify-content: center;
+}
+
+.bg-bar-ft{
+    height: 4.9px;
+    background-color: var(--grayFooter);
+}

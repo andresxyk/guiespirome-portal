@@ -1,0 +1,52 @@
+<div class="panel panel-default panel-reporte" *ngIf="mostrar">
+  <div class="panel-heading">
+    <div class="pull-left">Reporte {{objReporte.nomOriginalArchivo}}</div>
+    <div class="cerrar pull-right" (click)="close()">
+      <img src="../../../../assets/icons/icon-cerrar-reporte.svg" >
+    </div>
+  </div>
+  <div class="panel-body">
+    <ngx-extended-pdf-viewer
+      [src]="rutapdf"
+      [height]="'100%'"
+      [useBrowserLocale]="false"
+      [textLayer]="false"
+      [showHandToolButton]="false"
+      [(sidebarVisible)]="sidebarVisible"
+      [theme]="theme"
+      [showBookmarkButton]="false"
+      [showFindButton]="false"
+      [showOpenFileButton]="false"
+      [showPrintButton]="true"
+      replaceBrowserPrint="replaceBrowserPrint"
+      (beforePrint)="onBeforePrint()"
+      (afterPrint)="onAfterPrint()"
+      (progress)="onProgress($event)"
+      (pdfLoaded)="loaded($event)"
+      (pdfLoadingFailed)="loadingFail($event)"
+     >
+    </ngx-extended-pdf-viewer>
+  </div>
+</div>
+
+<div class="modal fade" role="dialog" id="content" #content>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="example-card-md example-card" style="display: flex; flex-direction: column; justify-content: flex-end;">
+        <div style="flex: 1;">
+          <div class="header">
+            <div class="icon-warning"></div>
+            <img class="custom-close-button" src="assets/icons/icon-normal-close.svg" width="15" height="15" (click)="btnCancelar()">
+          </div>
+          <div>
+            <p class="title">{{_Mensajes.MSG028}}</p>
+          </div>
+        </div>
+        <div class="foot-card centrar">
+          <button mat-stroked-button class="custom-clear-btn-class" (click)="btnCancelar()">Cancelar</button>
+          <button mat-stroked-button class="custom-load-btn-class" (click)="btnAccionar()">Aceptar</button>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,168 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div *ngIf=" blnAdministrador">
+      <app-title [data]="cabecera"></app-title>
+      <div class="col-md-12 ">
+        <div class="icono" >
+
+          <mat-icon class="" matTooltipClass=" descToolTip-above" matTooltipPosition="above"
+            matTooltip="Agregar Espirómetro" aria-label="Button that displays a tooltip when focused or hovered over" >
+            <div class="icon-add " (click)="btnAgregar()"></div>
+          </mat-icon>
+        </div>
+      </div>
+
+      <div class="buscador col-md-12" [formGroup]="form" novalidate autocomplete="off">
+        <div class="col-md-5">
+          <label>OOAD*:</label>
+     
+          <mat-select #c1 formControlName="c1" multiple class="form-control " id="c1" name="c1"
+            [ngClass]="{'ng-invalid ng-touched ng-dirty '  : blnErrorC1}" (closed)="cargaubicacion()"
+            [disableOptionCentering]="true" aria-label="c1" placeholder="Seleccionar" required>
+            <mat-option *ngFor="let objeto of lstOADD" [value]="objeto">
+              <div class="etiquetaSelect">{{ objeto.descripcionOoad }}</div>
+            </mat-option>
+            <mat-option *ngIf="lstOADD.length > 0" #allSelectedOoad (click)="toggleAll()" [value]="0">
+              <div class="etiquetaSelect">{{_Mensajes.MSJ_TODAS}}</div>
+            </mat-option>
+          </mat-select>
+          <div *ngIf="blnErrorC1">
+            <p class="error">{{_Mensajes.MSJ_CAMPO_OBLIGATORIO}}</p>
+          </div>
+
+
+
+        </div>
+        <div class="col-md-7">
+          <label>Ubicación de espirómetro*:</label>
+         
+          <mat-select #c2 formControlName="c2" multiple class="form-control " id="c2" name="c2"
+            [ngClass]="{'ng-invalid ng-touched ng-dirty '  : blnErrorC2}" [disableOptionCentering]="true"
+            aria-label="c2" placeholder={{_Mensajes.MSJ_SELECCIONAR}} required>
+            <mat-option *ngFor="let objeto of lstUbicaciones" [value]="objeto">
+              <div class="etiquetaSelect">{{ objeto.descripcionUmf }}</div>
+            </mat-option>
+            <mat-option *ngIf="lstUbicaciones.length > 0" #allSelectedUmf (click)="toggleUmfAll()" [value]="0">
+              <div class="etiquetaSelect">{{_Mensajes.MSJ_TODAS}}</div>
+            </mat-option>
+          </mat-select>
+          <div *ngIf="blnErrorC2">
+            <p class="error">{{_Mensajes.MSJ_CAMPO_OBLIGATORIO}}</p>
+          </div>
+
+        </div>
+        <div class="col-md-12 separador"></div>
+        <div></div>
+        <div class="col-md-5">
+          <label>Número de serie*:</label>
+          <input class="form-control" formControlName="c3" id="c3" name="c3" type="text"
+            placeholder="{{_Mensajes.MSJ_INGRESAR}}" (input)="onlyNumbers($event)" minlength="6" maxlength="6"
+            [ngClass]="{'ng-invalid ng-touched ng-dirty '  : blnErrorC3}">
+          <div *ngIf="blnErrorC3">
+            <p class="error">{{_Mensajes.MSJ_CAMPO_OBLIGATORIO}}</p>
+          </div>
+        </div>
+        <div class="col-md-7 botones ">
+
+
+          <div class="btnVerde btn pull-right" style="display: inline-block;" (click)="btnBuscar()">Buscar</div>
+          <div class="btnNaranja btn pull-right" style="display: inline-block;" (click)="btnLimpiar(true)">Limpiar</div>
+        </div>
+        <div class="col-md-12 separador"></div>
+      </div>
+      <div class="resultados col-md-12" style="position: relative;  z-index: 1; margin-bottom: 136px;">
+        <div class="secTitulo">{{etiquetaResultados}}</div>
+        <div class="linea-panel" [ngClass]="lstEspirometros.length > 0 ? 'verde' : 'naranja'">
+        </div>
+
+        <div class="iconLupa" [ngClass]="{'iconEspirometro': lstEspirometros.length > 0}"
+          style="position: absolute;  z-index: 2; top: 0px; "></div>
+
+        <div class="sin-resultados" [ngClass]="{'secTabla': lstEspirometros.length > 0}">
+          <div *ngIf="lstEspirometros.length == 0">
+            Realiza una búsqueda para ver los equipos de espirometría registrados
+          </div>
+
+          <div *ngIf="lstEspirometros.length > 0" >
+            <table id="tblEspirome" datatable [dtOptions]="dtOptions" data-page-length='10'
+              class="table  table-hover table-catalogo row-border table-responsive "  *ngIf="lstEspirometros.length > 0">
+
+              <thead>
+                <tr>
+                  <th style="width: 25px;"></th>
+                  <th style="width: 15px;">ID</th>
+                  <th style="min-width: 90px; width: 90px;">No. de serie</th>
+                  <th style="width: 160px;">No. Nacional de inventario</th>
+                  <th style="width: 230px;">OOAD</th>
+                  <th style="width: 120px;">Ubicación de espirómetro</th>
+                  <th style="max-width: 176px;">Área responsable del equipo</th>
+                  <th style="width: 124px;">Médico responsable del equipo</th>
+                  <th style="width: 65px;">Teléfono del médico</th>
+                  <!-- <th>Ext</th> -->
+                  <th style="width: 90px;">Matrícula del médico</th>
+                  <!-- <th style="width: 150px;">Nombre de médico</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let espirometro of lstEspirometros; index as i">
+                  <td style="width: 25px;">
+                    <div class="btn-group dropright">
+                      <div class="menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"></div>
+                      <div class="dropdown-menu">
+                        <div class="dropdown-item" *ngIf="espirometro.indActivo"  (click)="btnEditar(espirometro)">
+                          <div class="iconos edit"  ></div><div class="etiqueta">Editar</div>
+                        </div>
+                        <div class="dropdown-item" *ngIf="espirometro.indActivo" (click)="btnDesactivar(espirometro)">
+                          <div class="iconos delete"></div><div class="etiqueta">Desactivar</div>
+                        </div>
+                        <div class="dropdown-item" *ngIf="!espirometro.indActivo" (click)="btnReactivar(espirometro)">
+                          <div class="iconos delete"></div><div class="etiqueta">Activar</div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </td>
+                  <td style="width: 10px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">{{espirometro.idEquipoEspirometro}}
+                  </td>
+                  <td style="width: 80px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">
+                    {{espirometro.numeroSerie}}</td>
+                  <td style="min-width: 114px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">
+                    {{espirometro.nni}}</td>
+                  <td style="width: 230px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">{{espirometro.ooad }}</td>
+                  <td style="width: 120px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">{{espirometro.unidadMedica}}
+                  </td>
+                  <td [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'"
+                    style="max-width: 176px; text-overflow: ellipsis; overflow: hidden;">
+                    {{espirometro.areaResponsable}}</td>
+                  <td [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'"
+                    style="width: 124px; text-overflow: ellipsis; overflow: hidden;">
+                    {{espirometro.medicoResponsable}}</td>
+                  <td style="width: 65px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">
+                    {{espirometro.telMedico}}</td>
+                  <td style="width: 90px;" [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">{{espirometro.matriculaMedico}}
+                  </td>
+                  <!-- <td [ngClass]="espirometro.indActivo ? 'activado' : 'eliminado'">{{espirometro.nombreMedico}}</td> -->
+
+                </tr>
+              </tbody>
+            </table>
+            <ng-container *ngIf="lstEspirometros.length > 0">
+              <div class="resultadoss pull-left">
+                Resultados <span class="totcargas">{{ lstEspirometros.length }}</span>
+              </div>
+              <div class="nopag pull-right">
+                Página
+                <span class="bg-nopag" [innerText]="pagactual"></span>
+              </div>
+            </ng-container>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="!blnAdministrador">
+      <h1>Tu perfil no está autorizado para gestionar Espirómetros</h1>
+    </div>
+  </div>
+</div>

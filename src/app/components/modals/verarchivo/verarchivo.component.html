@@ -1,0 +1,52 @@
+<!-- <div class="card">
+    <div class="card-header" class="cuerpo">
+      {{fileName}}
+      <div style="cursor:pointer" class="pull-right" (click)="close()"> 
+        <img src="../../../../assets/icons/icon-cerrar-reporte.svg" >
+      </div>
+      
+    </div>
+    <div class="card-body" style="width: 700px;">
+       
+       <ngx-extended-pdf-viewer
+       [(src)]="srcArchivo"
+       [height]="'90%'"
+       [useBrowserLocale]="false"
+       [textLayer]="false"
+       [showHandToolButton]="false"
+       [theme]="theme"
+       [enablePrint]="true"
+       [showBookmarkButton]="false"
+       [showDownloadButton]="true"
+       [showFindButton]="false"
+       [showOpenFileButton]="false"
+       >
+       </ngx-extended-pdf-viewer>
+    </div>
+  </div>  -->
+  <div class="panel panel-default panel-reporte">
+    <div class="panel-heading">
+      <div class="pull-left">Reporte {{fileName}}</div>
+      <div class="cerrar pull-right" (click)="close()">
+        <img src="../../../../assets/icons/icon-cerrar-reporte.svg" >
+      </div>
+  
+    </div>
+    <div class="panel-body">
+      <ngx-extended-pdf-viewer
+        [(src)]="srcArchivo"
+        [height]="'100%'"
+        [useBrowserLocale]="true"
+        [textLayer]="false"
+        [showHandToolButton]="false"
+        [theme]="theme"
+        [showBookmarkButton]="false"
+        [showFindButton]="false"
+        [showOpenFileButton]="false"
+        [showPrintButton]="true"
+       
+       >
+      </ngx-extended-pdf-viewer>
+  
+    </div>
+  </div>

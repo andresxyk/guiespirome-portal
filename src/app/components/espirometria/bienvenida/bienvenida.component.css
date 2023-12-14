@@ -1,0 +1,155 @@
+.titulo-bienvenida{
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  padding: 100px 0;
+}
+
+.titulo-bienvenida p{
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.imagen-bienvenida{
+  width: 100%;
+  background-image: url('../../../../assets/images/Maskgroup.png');
+  display: block;
+  height: 554px;
+  height: 439px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.borde-imagen{
+  display: block;
+  width: 100%;
+  height: 8px;
+  background-color: #0f9676;
+}
+
+.panel{
+  flex-grow: 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  margin-top: -100px;
+}
+
+.titulo-panel{
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 40px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000;
+}
+
+.grupo-item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.grupo-item > .card{
+  width: 70%;
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #848791;
+  margin-bottom: 40px;
+}
+
+.grupo-item > .card > .card-body > .card-title{
+  font-size: 22px;
+  font-weight: 500;
+  text-align: justify;
+  color: #000;
+  margin-bottom: 3px;
+}
+
+.leyenda{
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #999;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.gpo-files{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.gpo-files > .img-file{
+  width: 350px;
+  height: 75px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.gpo-files > .manual{
+  background-image: url('../../../../assets/icons/gpo-man-user.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gpo-files > .carga{
+  background-image: url('../../../../assets/icons/gpo-carga-archivo.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gpo-files > .descarga{
+  background-image: url('../../../../assets/icons/gpo-descarga-programa.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gpo-files > .img-file > span{
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+  line-height: 75px;
+  vertical-align: middle;
+  margin-right: inherit;
+}

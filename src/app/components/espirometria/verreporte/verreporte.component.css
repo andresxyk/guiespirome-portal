@@ -1,0 +1,75 @@
+.panel-reporte {
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.15);
+  background-color: var(--whiteBase);
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--c000);
+  cursor: pointer;
+}
+
+.panel-reporte > .panel-heading {
+  background-color: var(--whiteBase);
+  position: relative;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.panel-reporte > .panel-heading > .onselect {
+  padding: 0;
+  background-color: var(--c90);
+  opacity: 0.5;
+  display: none;
+}
+
+.panel-reporte > .panel-heading:hover > .onselect{
+  padding: 0;
+    background-color: var(--c90);
+    opacity: 0.7;
+    position: absolute;
+    display: flex;
+    float: left;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-reporte > .panel-heading > img {
+  margin: 5px auto 0 auto;
+  width: 75%;
+}
+
+.panel-reporte > .panel-body {
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.panel-reporte > .panel-body > img {
+  width: 10%;
+  margin-right: 2%;
+}
+
+.bloque-titulo {
+  font-family: Montserrat;
+}
+
+.bloque-titulo > span {
+  font-weight: 600;
+
+}

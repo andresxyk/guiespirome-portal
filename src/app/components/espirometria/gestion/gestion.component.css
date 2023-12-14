@@ -1,0 +1,561 @@
+.eliminado {
+    color: var(--rojo);
+}
+
+.activado {
+
+    color: #505157;
+}
+
+.buscador {
+    font-size: 14px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.resultados {
+
+
+    width: 100%;
+
+    font-size: 14px;
+    padding-left: 17px;
+    padding-right: 20px;
+    border-bottom-right-radius: 9px;
+}
+
+.sin-resultados {
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    height: 85.8px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #eee;
+    background-color: #fff;
+    padding-top: 30px;
+
+}
+@media screen and (min-width: 1284px) {
+.secTabla {
+    width: 100%;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 23px;
+    
+}
+}
+
+@media screen and (max-width: 1283px) {
+
+    .secTabla {
+        width: 100%;
+        height: auto;
+        padding-top: 5px;
+        padding-bottom: 23px;
+        overflow-x: scroll;
+    }
+}
+
+.res {
+    height: 30px;
+    margin: 0 17px 0 0;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #666;
+}
+
+
+
+.botones {
+    display: inline-block;
+    text-align: right;
+    vertical-align: bottom;
+    padding-top: 20px;
+
+
+}
+
+.btn {
+
+    padding: 8.5px 10px;
+    margin-left: 15px;
+}
+
+select::-ms-expand {
+    display: none;
+    /*Evita que se muestre la flecha por defecto en versiones de IE*/
+    padding-right: 32px;
+}
+
+select {
+    cursor: pointer;
+    background-image: url('../../../../assets/icons/select-down.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-position-x: 98%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    font-family: Montserrat;
+    font-size: 12px;
+
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+
+    color: var(--c000);
+}
+
+
+.placeholder {
+    color: var(--c999);
+}
+
+select option:first-child {
+    color: var(--c999);
+}
+
+select option {
+    color: var(--c000);
+}
+
+input.ng-invalid.ng-touched.ng-dirty.ng-untouched.ng-pristine {
+    border: 1px solid var(--rojo);
+    color: var(--rojo);
+}
+
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--gris);
+    font-size: 14px;
+
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--c999);
+}
+
+
+select.form-control.option.error {
+    color: var(--rojo);
+    font-size: 12px;
+}
+
+.etiquetaSelect {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+
+
+}
+
+.mat-icon {
+    width: 43px;
+    height: 43px;
+}
+
+.icono {
+    width: 100%;
+    height: 43px;
+    margin: 0px;
+    text-align: right;
+}
+
+.icon-add {
+    padding-right: 15px;
+    margin-left: -2px;
+    cursor: pointer;
+
+    height: 43px;
+
+    background-image: url('../../../../assets/icons/add_espirometro.svg');
+    background-repeat: no-repeat;
+
+
+}
+
+p {
+    margin: 0 0 0px;
+}
+
+.secTitulo {
+
+    width: 339.9px;
+    height: 45.9px;
+
+
+    background-size: 339.9px;
+    background-image: url('../../../../assets/icons/titulo.svg');
+    background-repeat: no-repeat;
+
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+    padding-top: 16px;
+    padding-left: 110px;
+    margin-left: -3px;
+}
+
+.menu {
+    cursor: pointer;
+    width: 14px;
+    height: 26px;
+    background-size: 10px;
+    background-image: url('../../../../assets/icons/menuPuntosV.svg');
+    background-repeat: no-repeat;
+}
+
+.menu:hover {
+    width: 14px;
+    height: 26px;
+    background-size: 10px;
+    background-image: url('../../../../assets/icons/menuPuntos.svg');
+    background-repeat: no-repeat;
+}
+
+.menu:focus {
+    width: 14px;
+    height: 26px;
+    background-size: 10px;
+    background-image: url('../../../../assets/icons/menuPuntos.svg');
+    background-repeat: no-repeat;
+}
+
+.linea-panel {
+    width: 100%;
+    height: 6px;
+    flex-grow: 0;
+    object-fit: contain;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    /* background-color: var(--linev); */
+}
+
+.linea-panel.verde {
+    background-color: var(--linev);
+}
+
+.linea-panel.naranja {
+    background-color: var(--linen);
+}
+
+
+
+.iconLupa {
+    margin-left: 17.2px;
+    width: 65.9px;
+    height: 64.8px;
+    background-size: 65.9px;
+    background-image: url('../../../../assets/icons/lupa.svg');
+    background-repeat: no-repeat;
+}
+
+.iconEspirometro {
+    margin-left: 17.2px;
+    width: 65.9px;
+    height: 64.8px;
+    background-size: 65.9px;
+    background-image: url('../../../../assets/icons/espirometro.svg');
+    background-repeat: no-repeat;
+}
+
+.etiqueta {
+
+    margin-left: 10px;
+}
+
+.iconos {
+    width: 25px;
+
+}
+
+
+.edit {
+
+
+    width: 16px;
+    height: 15px;
+    background-size: 24px;
+    background-image: url('../../../../assets/icons/editV.svg');
+    background-repeat: no-repeat;
+}
+
+.delete {
+    padding: 1.7px 1.7px 5.6px 13px;
+    width: 14.2px;
+    height: 14.2px;
+    background-size: 14.2px;
+    background-image: url('../../../../assets/icons/fi_refresh-ccw.svg');
+    background-repeat: no-repeat;
+}
+
+.btn-group.open .dropdown-toggle {
+    box-shadow: none;
+}
+
+::ng-deep.dropdown-menu {
+    height: auto;
+    min-width: 130px;
+    width: 130px;
+    gap: 10px;
+
+
+    border-radius: 5px;
+    background-color: #eeeeee;
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    left: 13px;
+    z-index: 1000;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+
+
+    list-style: none;
+
+    text-align: left;
+
+
+}
+
+.dropdown-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    height: 25px;
+    width: 111.6px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    border-radius: 5px;
+    letter-spacing: normal;
+    text-align: left;
+    color: #969eab;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.dropdown-item:hover {
+    width: auto;
+    color: var(--primario-pop-color);
+    background-color: #e6f6f2;
+    font-weight: 600;
+}
+
+.table-catalogo {
+    margin-top: 21px;
+    /* margin-left: 0;
+    margin-right: 0; */
+    margin-bottom: 0;
+    border: 0;
+
+}
+
+.table>:not(:first-child) {
+    border-top: none;
+    border-bottom: none;
+}
+
+table.table-catalogo>thead tr th {
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 11px;
+    padding-bottom: 2px;
+    height: 42px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2e2e2e;
+    background-color: rgba(237, 250, 234, 0.8);
+    border: 0;
+    vertical-align: middle;
+
+}
+
+
+table.table-catalogo>tbody tr td {
+    height: 36px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+
+    background-color: white;
+    border-left: none;
+    border-right: none;
+    vertical-align: middle;
+    padding-left: 7px;
+    padding-right: 3px;
+    box-shadow: none !important;
+}
+
+
+
+
+div.nopag {
+
+    width: 99px;
+    height: 28px;
+    text-align: left;
+    flex-grow: 0;
+    font-family: Montserrat;
+    margin: 5px 12px 8px 0;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #3e3e3e;
+    position: relative;
+    /* left: 0%; */
+
+
+    vertical-align: middle;
+}
+
+
+/*Cuadro número de página*/
+
+
+.sin-borde {
+    border: none;
+}
+
+div.resultadoss {
+    width: 125px;
+    height: 28px;
+    text-align: left;
+    flex-grow: 0;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--c666);
+    line-height: 28px;
+    position: relative;
+    top: -35px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+div.nopag {
+    width: 99px;
+    height: 28px;
+    text-align: right;
+    flex-grow: 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--c3e);
+    line-height: 28px;
+    position: relative;
+    top: -42px;
+    margin-right: 20px;
+}
+
+div.nopag>span.bg-nopag {
+    width: 37px;
+    height: 28px;
+    border-radius: 6px;
+    border: solid 1px var(--primario-pop-color);
+    background-color: var(--whiteBase);
+    float: right;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--c222);
+    line-height: 28px;
+    margin-left: 12px;
+}
+
+div.resultadoss>span.totcargas {
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--c222);
+    margin-left: 15px;
+
+}
+
+table.dataTable.no-footer {
+    border: none;
+}
+
+::ng-deep.mat-tooltip {
+    color: #969eab !important;
+    margin: 0.3px 0 0 !important;
+    font-size: 10px !important;
+}
+
+::ng-deep.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
+    -webkit-overflow-scrolling: touch;
+    min-height: 115px;
+}
+
+
+/* ::ng-deep .mat-select-panel::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  ::ng-deep .mat-select-panel::-webkit-scrollbar:vertical {
+    width: 2.4px;
+  }
+  
+  ::ng-deep .mat-select-panel::-webkit-scrollbar-thumb {
+    background-color: #eee;
+  } */

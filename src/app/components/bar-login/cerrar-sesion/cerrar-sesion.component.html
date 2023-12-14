@@ -1,0 +1,20 @@
+<div class="modal-size">
+    <div class="cross-container">
+        <img src="../../../../assets/icons/close.svg" alt="" class="cross-icon" (click)="cerrarModal()">
+    </div>
+    <div class="center-items">
+        <img src="../../../../assets/icons/admiracion_naranja.svg" alt="" class="alert-icon">
+    </div>
+    <div class="center-items">
+        <span class="desc-modal">{{modalData.question}}</span>
+    </div>
+    <div class="row-botones">
+        <div class="container-btns">
+            <div class="btn-cancelar" (click)="cerrarModal()"><span class="text-btn-cancelar">Cancelar</span></div>
+            <div class="btn-aceptar" (click)="salir()"><span class="text-btn-aceptar">Aceptar</span></div>
+        </div>
+    </div>
+
+</div>
+
+

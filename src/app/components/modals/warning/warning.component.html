@@ -1,0 +1,24 @@
+<div [ngClass]="{
+  'example-card-lg': lg === 'lg',
+  'example-card-md': lg === 'md',
+  'example-card-xs': lg === 'xs'
+}" class="example-card" style="display: flex; flex-direction: column; justify-content: flex-end;">
+  <div style="flex: 1;">
+    <div class="header">
+      <div *ngIf="dataparams.icon == 'warning'" class="icon-warning"></div>
+      <div *ngIf="dataparams.icon == 'edit'" class="icon-edit"></div>
+      <div *ngIf="dataparams.icon == 'delete'" class="icon-delete"></div>
+      <img class="custom-close-button" src="assets/icons/icon-normal-close.svg" width="15" height="15" (click)="cancelar()">
+    </div>
+
+    <div>
+      <p *ngIf="dataparams.strMensaje1" class="title">{{dataparams.strMensaje1}}</p>
+      <p *ngIf="dataparams.strMensaje2" class="secondText centrar">{{dataparams.strMensaje2}}</p>
+    </div>
+  </div>
+
+  <div class="foot-card centrar">
+    <button *ngIf="dataparams.strTituloBotonCancel" mat-stroked-button class="custom-clear-btn" (click)="cancelar()">{{dataparams.strTituloBotonCancel}}</button>
+    <button *ngIf="dataparams.strTituloBoton" mat-stroked-button class="custom-load-btn" (click)="accionar()">{{dataparams.strTituloBoton}}</button>
+  </div>
+</div>

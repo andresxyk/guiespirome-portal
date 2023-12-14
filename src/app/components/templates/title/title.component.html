@@ -1,0 +1,15 @@
+<div class="principal">
+    <div *ngIf="data.boolBtn" class="col-md-2 regresar" (click)="btnRegresar()">
+      <img src="'../../../../../../assets/icons/icon-regresar.svg">
+    </div>
+    <div class="col-md-6 titulo" [ngStyle]="{'width': data.boolBtn ? '76%' : '80%'}">
+    {{data.strTitulo}}
+    </div>
+    <div class="col-md-4 fecha">
+        {{data.strFecha}}
+    </div>
+    <div class="col-md-12 linea">
+
+    </div>
+
+</div>

@@ -1,0 +1,74 @@
+.principal {
+
+
+  max-height: 80px;
+  height: 80px;
+  font-family: Montserrat;
+  padding-top: 20px;
+  margin: 0px;
+}
+
+.titulo {
+  padding-left: 0px;
+  height: 20px;
+  display: inline-block;
+  width: 76%;
+  vertical-align: bottom;
+
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--c10312b);
+}
+
+
+.fecha {
+  height: 15px;
+  display: inline-block;
+
+  text-align: right;
+  width: 20%;
+  vertical-align: bottom;
+  margin-top: 0px;
+
+
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: var(--c10312b);
+  padding-right: 0px;
+}
+
+.linea {
+  background-color: var(--ce6e0dc);
+  
+  height: 1px;
+  margin-top: 13.5px;
+
+}
+
+.regresar {
+  cursor: pointer;
+  padding-left: 0px;
+  margin-right: 1%;
+  height: 20px;
+  display: inline-block;
+  width: 3%;
+  vertical-align: bottom;
+  position: relative;
+  cursor: pointer;
+}
+
+.regresar img {
+  position: absolute;
+  left: 0px;
+  transform: translate(0, -13%);
+}

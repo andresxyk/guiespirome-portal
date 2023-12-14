@@ -1,0 +1,179 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <app-title [data]="cabecera"></app-title>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form role="form" [formGroup]="reporte" novalidate autocomplete="off">
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <label class="etiqueta_campo">OOAD*:</label>
+            <div class="form-group">
+              <mat-select #ooad formControlName="ooad" multiple
+                class="form-control form-control-mat-select" id="ooad" name="ooad"
+                [ngClass]="{'ng-invalid ng-touched ng-dirty': listErrors.ooad }"
+                (closed)="cargaubicacion()"
+                [disableOptionCentering]="true" aria-label="ooad"
+                placeholder={{_Mensajes.MSJ_SELECCIONAR}}
+                required >
+                <mat-option *ngFor="let item of lstOoad" [value]="item">
+                  <div class="etiquetaSelect">{{ item.descripcionOoad }}</div>
+                </mat-option>
+                <mat-option *ngIf="lstOoad.length > 0" #allSelectedOoad (click)="toggleOoadAll()" [value]="0">
+                  <div class="etiquetaSelect">{{_Mensajes.MSJ_TODAS}}</div>
+                </mat-option>
+              </mat-select>
+              <small *ngIf="listErrors.ooad" class="form-text form-text-error">
+                Campo obligatorio
+              </small>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <label class="etiqueta_campo">Ubicación de espirómetro*:</label>
+            <div class="form-group">
+              <mat-select class="form-control form-control-mat-select" formControlName="ubicacion"
+                id="ubicacion" name="ubicacion"
+                [ngClass]="{ 'ng-invalid ng-touched ng-dirty': listErrors.ubicacion }"
+                [disableOptionCentering]="true" aria-label="ubicacion"
+                placeholder={{_Mensajes.MSJ_SELECCIONAR}}
+                required multiple>
+                <mat-option *ngFor="let item of lstUmf" [value]="item">
+                  <div class="etiquetaSelect">{{ item.descripcionUmf + ' / ' + item.areaResponsableEquipo }}</div>
+                </mat-option>
+                <mat-option *ngIf="lstUmf.length > 0" #allSelectedUmf (click)="toggleUmfAll()" [value]="0">
+                  <div class="etiquetaSelect">{{_Mensajes.MSJ_TODAS}}</div>
+                </mat-option>
+              </mat-select>
+              <small *ngIf="listErrors.ubicacion" class="form-text form-text-error">
+                Campo obligatorio
+              </small>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <label class="etiqueta_campo">Rango de fecha de pruebas:</label>
+            <div class="form-group form-inline">
+              <input [matDatepicker]="picker" class="form-control fecha_input"
+                type="text" id="fechainicio" name="fechainicio"
+                placeholder="dd/mm/aaaa"
+                formControlName="fechainicio" minlength="10" maxlength="10"
+                [min]="minDate" [max]="maxDate"
+                (click)="picker.open()"
+                (dateChange)="onchangefechaIni($event)"
+                [matDatepickerFilter]="myFilter" readonly/>
+                <mat-datepicker #picker [disabled]="false" ></mat-datepicker>
+                <p class="text-entre">al</p>
+                <input [matDatepicker]="picker2" class="form-control fecha_input"
+                  type="text" id="fechafin" name="fechafin"
+                  placeholder="dd/mm/aaaa"
+                  formControlName="fechafin" minlength="10" maxlength="10"
+                  [min]="minDate" [max]="maxDate"
+                  (click)="picker2.open()"
+                  (dateChange)="onchangefechaFin($event)"
+                  [matDatepickerFilter]="myFilter" readonly/>
+                <mat-datepicker #picker2 [disabled]="false"></mat-datepicker>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <label class="etiqueta_campo" style="width: 100%;">NSS*:</label>
+            <div class="form-group" style="width: 66%; display: inline-block;">
+              <input #nss class="form-control nss_input" type="text"
+                id="nss" name="nss"
+                placeholder="Ingresar"
+                (input)="onlyNumbers($event)"
+                [ngClass]="{'ng-invalid ng-touched ng-dirty ng-pristine': listErrors.nss}"
+                formControlName="nss" minlength="10" maxlength="11" required />
+                <small *ngIf="listErrors.nss"  class="form-text form-text-error">
+                  Campo obligatorio
+                </small>
+            </div>
+
+            <div type="button" class="btnVerde btn pull-right" style="margin-left: 25px"
+              (click)="btnBuscar()">
+              Buscar
+            </div>
+
+            <div type="button" class="btnNaranja btn pull-right" style="margin-left: 15px"
+              (click)="btnLimpiar()">
+              Limpiar
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="col-md-12">
+      <ng-container *ngIf="lstPruebas.length == 0">
+        <div class="img-pestania lg pull-left">
+          <img src="../../../../assets/icons/icon-buscar-naranja.svg">
+          <span>Resultado(s) de búsqueda</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="lstPruebas.length > 0">
+        <div class="img-pestania pull-left">
+          <img src="../../../../assets/icons/icon-reporte.svg">
+          <span>Reportes</span>
+        </div>
+        <div class="img-imprimir pull-right" (click)="btnExportar()">
+          <img src="../../../../assets/icons/icon-imprimir.svg"
+          matTooltipClass="descToolTip-above" matTooltipPosition="above"
+          matTooltip="Imprimir reportes">
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="linea-panel" [ngClass]="lstPruebas.length > 0 ? 'verde' : 'naranja'" ></div>
+        <div class="panel-body">
+          <table id="tblreportes" datatable [dtOptions]="dtOptions"
+            class="table table-hover table-catalogo row-border display nowrap table-responsive"
+            *ngIf="lstPruebas.length > 0">
+            <thead>
+              <tr>
+                <th class="no-sort" style="width: 80px !important"></th>
+                <th class="no-sort" style="width: 80px !important">ID</th>
+                <th class="no-sort" style="width: 150px !important">NSS</th>
+                <th class="no-sort" style="width: 400px !important">Nombre</th>
+                <th class="no-sort" style="width: 250px !important">Matrícula del médico</th>
+                <th class="no-sort" style="width: 150px !important">Fecha de carga</th>
+                <th style="width: 120px !important">Fecha de prueba</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of lstPruebas">
+                <td style="width: 80px !important; text-align: center; cursor: pointer;"
+                  (click)="verreportes(item.nss)"
+                  matTooltipClass="descToolTip-above" matTooltipPosition="right"
+                  matTooltip="Visualizar reportes">
+                  <img src="../../../../assets/icons/icon-ver.svg">
+                </td>
+                <td style="width: 80px !important">{{ item.id }}</td>
+                <td style="width: 150px !important">{{ item.nss }}</td>
+                <td style="width: 400px !important">{{ item.nombrePaciente }}</td>
+                <td style="width: 250 !important">{{ item.matriculaMedico }}</td>
+                <td style="width: 150px !important">{{ item.fechaCarga }}</td>
+                <td style="width: 100px !important">{{ item.datePrueba | date: 'dd/MM/yyyy' }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-container *ngIf="lstPruebas.length > 0">
+            <div class="resultados pull-left">
+              Resultados <span class="totcargas">{{ lstPruebas.length }}</span>
+            </div>
+            <div class="nopag pull-right">
+              Página
+              <span class="bg-nopag" [innerText]="pagactual"></span>
+            </div>
+          </ng-container>
+          <p class="sin-resultados" *ngIf="lstPruebas.length == 0">
+            Realiza una búsqueda para visualizar el registro de reportes
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

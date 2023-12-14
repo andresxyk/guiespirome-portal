@@ -1,0 +1,180 @@
+<app-title [data]="cabecera"></app-title>
+<div *ngIf="!blnVerPDF">
+  <div [formGroup]="form" class="row" role="form" novalidate autocomplete="off" enctype="multipart/form-data">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="row aling-izq">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 file-input" style="pointer-events: none;">
+          <label for="file" class="custom-file-upload" [innerText]="form.controls.fileControl.value.name">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+          <button mat-stroked-button class="margin-btn custom-clear-btn-class" [disabled]='!limpiamos' (click)="limpiaXML()">Limpiar</button>
+          <div class="custom-load-btn-class-div" onclick="document.getElementById('file').click()">
+            Cargar
+            <input class="custom-file-input" type="file" accept=".xml" id="file" formControlName="file" style="display:none" (click)="handleFileClick($event)" />
+          </div>
+        </div>
+
+
+      </div>
+
+      <br>
+
+      <div class="titulo">
+        <div class="centrar centrar-vertical">
+          <i class="fa icon-reporte"></i>
+          <p class="title-text">Registros cargados</p>
+        </div>
+      </div>
+
+      <div [ngClass]="{'is-data': this.pacientes.data.length <= 0 && !xmlCargo}" class="row container-tab table-responsive">
+        <mat-progress-bar class="mat-progress-bar-with-shadow" color="warm" mode="determinate" value="100">
+        </mat-progress-bar>
+        <p class="msg-text" *ngIf="this.pacientes.data.length <= 0 && !xmlCargo">Aún no hay datos cargados en el sistema</p>
+        <table id="tbXml" datatable *ngIf="this.pacientes.data.length <= 0 && xmlCargo" [dtOptions]="optVacio" class="table table-responsive row-border rounded-table">
+          <thead class="rounded-thead">
+            <tr>
+              <th class="columnas" style="width:50px !important;">Acciones</th>
+              <th id="validacion" class="columnas" style="width:50px !important;">Validación</th>
+              <th class="columnas" style="width:50px !important;">Archivo(s)</th>
+              <th class="columnas" style="width:50px !important;">ID</th>
+              <th class="columnas" style="width:125px !important;">NSS del asegurado</th>
+              <th class="columnas" style="width:125px !important;">Nombre(s) asegurado</th>
+              <th class="columnas" style="width:125px !important;">Apellido(s) asegurado</th>
+              <th class="columnas" style="width:120px !important;">Matrícula del médico</th>
+              <th id="fechaPruebas" class="columnas" style="width:120px !important;" sortable="true">Fecha de prueba</th>
+              <th class="columnas" style="width:105px !important; text-align: left!important;">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody class="custom-table-body">
+          </tbody>
+        </table>
+        <table id="tbXml" datatable *ngIf="this.pacientes.data.length > 0 && xmlCargo" [dtOptions]="dtOptions" class="table table-responsive row-border rounded-table">
+          <thead class="rounded-thead">
+            <tr>
+              <th class="columnas-xs" style="width:65px !important; padding-left: 10px; padding-right: 10px;">Acciones</th>
+              <th id="validacion" class="columnas-xs" style="width:74px !important; padding-left: 10px; padding-right: 10px;">Validación</th>
+              <th class="columnas-xs" style="width:71px !important; padding-left: 10px; padding-right: 10px;">Archivo(s)</th>
+              <th class="columnas" style="width:50px !important;">ID</th>
+              <th class="columnas" style="width:125px !important;">NSS del asegurado</th>
+              <th class="columnas" style="width:155px !important;">Nombre(s) asegurado</th>
+              <th class="columnas" style="width:155px !important;">Apellido(s) asegurado</th>
+              <th class="columnas" style="width:125px !important;">Matrícula del médico</th>
+              <th id="fechaPruebas" class="columnas" style="width:120px !important;" sortable="true">Fecha de prueba</th>
+              <th class="columnas" style="width:150px !important; text-align: left!important;">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody class="custom-table-body">
+            <tr *ngFor="let item of pacientes.data">
+              <td *ngIf="item.estatusValidacion && !item.estatusCargaArch" class="filas-xs">
+                <div class="btn-group dropright">
+                  <div class="menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"></div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-itemx">
+                      <div class="block" style="margin-top: 3px;">
+                        <label class="sombra" style="cursor: pointer; width: 136.5px; height: 25px;">
+                          <input type="file" id="fil" name="fil" accept="application/pdf" (change)="fileHandleUpload($event,item.pacienteId,item.datePrueba)">
+                          <div>
+                            <img style="width: 15px; height: 15px;margin-right: 7px; margin-top: 4px; margin-bottom: 7px;" src="assets/icons/icon-carga-v.svg" alt="icon-carga-v.svg" />
+                            <span style="margin-top: 5px;">Cargar PDF</span>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+
+
+
+              <td *ngIf="!item.estatusValidacion" class="filas-xs">
+                <div class="btn-group dropright">
+                  <div class="menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"></div>
+                  <div class="dropdown-menu" style="background-color: whitesmoke;">
+                    <div class="dropdown-itemx">
+                      <div class="block" style="margin-top: 3px;">
+                        <label class="sombra no-hover" style="cursor: pointer; width: 136.5px; height: 25px;">
+                          <div>
+                            <img style="width: 15px; height: 15px;margin-right: 5px; margin-bottom: 5px;" src="assets/icons/icon-carga-g.svg" alt="icon-carga-g.svg" />
+                            <span>Cargar PDF</span>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+
+
+              <td *ngIf="item.estatusValidacion && item.estatusCargaArch" class="filas-xs">
+                <div class="btn-group dropright">
+                  <div class="menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"></div>
+                  <div class="dropdown-menu" style="background-color: whitesmoke;">
+                    <div class="dropdown-item">
+                      <div class="fileContainer">
+                        <label class="sombra no-hover" style="width: 136.5px; height: 25px;">
+                          <img style="width: 15px; height: 15px; margin-right: 5px; margin-top: 5px;" src="assets/icons/icon-carga-g.svg" alt="carga.svg" />
+                          Cargar PDF
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="filas-xs" *ngIf="item.estatusValidacion" style="width:50px !important;">
+                <img src="assets/icons/valida-ok.svg">
+              </td>
+              <td class="filas-xs" *ngIf="!item.estatusValidacion" style="width:50px !important;">
+                <img src="assets/icons/valida-no.svg">
+              </td>
+              <td *ngIf="item.estatusCargaArch === false" class="filas-xs" style="width:50px !important;">
+                <img src="assets/icons/icon-ver_g.svg">
+              </td>
+              <td *ngIf="item.estatusCargaArch === true" class="filas-xs" style="width:50px !important;cursor: pointer;" (click)="verPDF(item.pacienteId,item.datePrueba)">
+                <img matTooltipClass="descToolTip-above" matTooltipPosition="right" matTooltip="Visualizar archivo" src="../../../../assets/icons/icon-ver.svg">
+              </td>
+              <td class="filas-md texto-filas" style="width:50px !important;">{{ item.pacienteId }}</td>
+              <td class="filas-md texto-filas" style="width:125px !important;white-space: nowrap;">{{ item.nssPaciente }}</td>
+              <td class="filas-md texto-filas" style="width:125px !important;white-space: nowrap;">{{ item.nombrePaciente }}</td>
+              <td class="filas-md texto-filas" style="width:125px !important; white-space: nowrap;">{{ item.apellidoPaciente }}</td>
+              <td class="filas-md texto-filas" style="width:120px !important; white-space: nowrap;">{{ item.matriculaMedico }}</td>
+              <td [ngClass]="{'filas-md texto-filas texto-cortado': true, '': item.selectedFecha}" style="width:100px !important;white-space: nowrap;">
+                {{ item.datePrueba | date: 'dd/MM/yyyy' }}
+              </td>
+              <td class="filas-md texto-filas texto-cortado" style="width:155px !important; text-align: left!important; white-space: nowrap;" matTooltip="{{ item.observaciones }}" matTooltipClass="descToolTip-above-two"
+                [matTooltipPosition]="tooltipPosition">{{ item.observaciones }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="banXmlCarga" class="buttons">
+    <div *ngIf="numRegistrosCorrectos != sumRegistroCargados" class="alertEnviar">
+      <div class="text-enviar">Para realizar el envío de la información, es
+        necesario que se adjunten todos los archivos PDF
+        de los registros validados
+      </div>
+      <img class="icon-alert "  src="assets/icons/fi_alert.svg">
+     
+    </div>
+
+    <button *ngIf="xmlSinCarga == true" type="button" [disabled]="xmlSinCarga" class="custom-load-btn-class-div" style="margin-left: 25px; cursor: pointer;">
+      Enviar
+    </button>
+    <button *ngIf="xmlSinCarga == false && numRegistrosCorrectos != sumRegistroCargados" type="button" [disabled]="true" class="custom-load-btn-class-div" style="margin-left: 25px; ">
+      Enviar
+    </button>
+
+    <div *ngIf="xmlSinCarga == false && numRegistrosCorrectos == sumRegistroCargados" class="custom-load-btn-class-div pull-right" style="display: inline-block; margin-left: 20px; padding-top: 10px;" (click)="btnEnviar()" >Enviar</div>
+
+  </div>
+
+</div>
+<div *ngIf="blnVerPDF">
+  <visor-archivos [data]="lstPDFPaciente"></visor-archivos>
+</div>
+<div style="height: 30px;"></div>

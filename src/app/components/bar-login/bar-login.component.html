@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="bar-container">
+        <div style="max-width: 100%;">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-menu">
+                <div class="menu-container">
+                    <button mat-button [matMenuTriggerFor]="menu" class="menu"><img src="../../../assets/icons/menu-dropdown.svg" ></button>
+                </div>
+                <mat-menu #menu="matMenu" class="menu-list-panel" >
+                    <span *ngFor="let menuItem of menuList">
+                        <button mat-menu-item class="menu-item-drop" 
+                        (click)="menuAction(menuItem.function)" 
+                        (mouseover)="menuItem.src = menuItem.srcHover" 
+                        (mouseout)="menuItem.src = menuItem.srcHoverOut"
+                        *ngIf="menuItem.visible"
+                        >
+                            <img [src]="'../../../assets/icons/'+menuItem.src"><span class="menu-text-item">{{menuItem.name}}</span>
+                        </button>
+                    </span>
+                    <span>
+                        <button mat-menu-item class="menu-item-drop menu-dwn" 
+                        (click)="menuAction(descargarOp.function)" 
+                        (mouseover)="descargarOp.src = descargarOp.srcHover" 
+                        (mouseout)="descargarOp.src = descargarOp.srcHoverOut"
+                        *ngIf="descargarOp.visible"
+                        >
+                        
+                            <div style="height: 100%;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding: 0; height: 100%;">
+                                    <img [src]="'../../../assets/icons/'+descargarOp.src">
+                                </div>
+                                
+                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="padding: 0; height: 100%;">
+                                    <div class="row" style="display: flex;">
+                                        <span class="menu-text-item" style="margin-top: -9px;">{{descargarOp.name}}</span>
+                                    </div>
+                                    <div class="row" style="display: flex;">
+                                        <span class="menu-text-item" style="margin-top: -30px;">{{descargarOp.name2}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </span>
+                    <hr>
+                    <span>
+                        <button mat-menu-item class="menu-item-drop menu-cerrar" 
+                        (click)="menuAction(cerrarOp.function)" 
+                        *ngIf="cerrarOp.visible"
+                        >
+                            <img [src]="'../../../assets/icons/'+cerrarOp.srcHover"><span class="menu-text-item">{{cerrarOp.name}}</span>
+                        </button>
+                    </span>
+                </mat-menu>
+                <span class="menu-title">Sistema de Espirometrías</span>
+    
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="height: 58px;" >
+                <div class="row col-user">
+                    <span class="user-name">{{usuario}}</span>
+                </div>
+                <div class="row col-user-perfil" *ngIf="!admin">
+                    <span class="user-perfil">{{delegacion}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <app-title [data]="cabecera"></app-title>
+
+        <div class="principal col-md-12" [formGroup]="form">
+            <div class="col-md-3">
+                <label>Número de serie*:</label>
+                <input class="form-control" formControlName="c1" id="c1" name="c1" type="text"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" (input)="onlyNumbers($event)"
+                    minlength="6" maxlength="6" [ngClass]="{'ng-invalid ng-touched  '  : blnC1 && blnGuardar}">
+                
+                <div *ngFor="let validation of msjValidation.c1">
+                    <div class="error" *ngIf="form.get('c1').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+                <label>No. Nacional de inventario*:</label>
+                <input class="form-control" formControlName="c2" id="c2" name="c2" type="text"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" (input)="onlyNumbers($event)"
+                    minlength="12" maxlength="12" [ngClass]="{'ng-invalid ng-touched  '  : blnC2 && blnGuardar}">
+                
+                <div *ngFor="let validation of msjValidation.c2">
+                    <div class="error" *ngIf="form.get('c2').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <label>OOAD*:</label>
+                <select #c3 class="form-control " formControlName="c3" id="c3" name="c3" aria-placeholder="dsdsd"
+                    placeholder="Algo va aqui" style="width: 100%;" (change)="obtenerLstUbicaciones();"
+                    [ngClass]="{'ng-invalid ng-touched  '  : blnC3 && blnGuardar}" >
+                    <option value="" selected disabled>{{_Mensajes.MSJ_SELECCIONAR}}</option>
+                    
+                    <option *ngFor="let objeto of lstOADD" [value]="objeto.cveDelegacion">
+                        <div class="etiquetaSelect">{{objeto.descDelegacion}}</div>
+                    </option>
+                </select>
+               
+                <div *ngFor="let validation of msjValidation.c3">
+                    <div class="error" *ngIf="form.get('c3').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 separador"></div>
+            <div class="col-md-7">
+                <label>Unidad Médica*:</label>
+                <select #c4 class="form-control " formControlName="c4" id="c4" name="c4" style="width: 100%;"
+                    [ngClass]="{'ng-invalid ng-touched  '  : blnC4 && blnGuardar}">
+                    <option value="" selected disabled>{{_Mensajes.MSJ_SELECCIONAR}}</option>
+                    
+                    <option *ngFor="let objeto of lstUbicaciones" [value]="objeto.cvePresupuestal">
+                        <div class="etiquetaSelect">{{objeto.nomUnidadMedica}}</div>
+                    </option>
+                </select>
+               
+                <div *ngFor="let validation of msjValidation.c4">
+                    <div class="error" *ngIf="form.get('c4').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <label>Área responsable del equipo*:</label>
+               
+                <input class="form-control" formControlName="c5" id="c5" name="c5" type="text"
+                placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" 
+                minlength="1" maxlength="45" [ngClass]="{'ng-invalid ng-touched  '  : blnC5 && blnGuardar}">
+              
+                <div *ngFor="let validation of msjValidation.c5">
+                    <div class="error" *ngIf="form.get('c5').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 separador"></div>
+            <div class="col-md-3">
+                <label>Matrícula de Médico*:</label>
+                <input class="form-control" formControlName="c9" id="c9" name="c9" type="text"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" (input)="onlyNumbers($event)"
+                    minlength="7" maxlength="15" [ngClass]="{'ng-invalid ng-touched  '  : blnC9 && blnGuardar}">
+                
+                <div *ngFor="let validation of msjValidation.c9">
+                    <div class="error" *ngIf="form.get('c9').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <label>Médico responsable del equipo*:</label>
+                <input class="form-control" formControlName="c6" id="c6" name="c6" type="text" (input)="onlyLetrasNumeros($event)"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" minlength="1" maxlength="45"
+                    [ngClass]="{'ng-invalid ng-touched  '  : blnC6 && blnGuardar}">
+               
+                <div *ngFor="let validation of msjValidation.c6">
+                    <div class="error" *ngIf="form.get('c6').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <label>Tel: Médico responsable*:</label>
+                <input class="form-control" formControlName="c7" id="c7" name="c7" type="text"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" (input)="onlyNumbers($event)"
+                    minlength="10" maxlength="10" [ngClass]="{'ng-invalid ng-touched  '  : blnC7 && blnGuardar}">
+                
+                <div *ngFor="let validation of msjValidation.c7">
+                    <div class="error" *ngIf="form.get('c7').hasError(validation.type) && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>Ext*:</label>
+                <input class="form-control" formControlName="c8" id="c8" name="c8" type="text"
+                    placeholder="{{_Mensajes.MSJ_INGRESAR}}" autocomplete="off" (input)="onlyNumbers($event)"
+                    minlength="5" maxlength="5" [ngClass]="{'ng-invalid ng-touched  '  : blnC8 && blnGuardar}">
+                
+                <div *ngFor="let validation of msjValidation.c8">
+                    <div class="error" *ngIf="form.get('c8').hasError(validation.type)  && blnGuardar">{{validation.msj}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 separador"></div>
+       
+            <div class="col-md-12 separador"></div>
+            <div class="col-md-12 botones">
+                <div class="btn btnVerde pull-right" (click)="btnGuardar()">Guardar</div>
+                <div class="btn btnNaranja pull-right" (click)="btnCancelar()">Cancelar</div>
+
+
+            </div>
+            <div class="col-md-12 " style="height: 190px;"></div>
+        </div>
+
+
+    </div>
+</div>

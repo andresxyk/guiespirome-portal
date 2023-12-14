@@ -1,0 +1,41 @@
+.cuerpo{
+  background-color: var(--primario-pop-color);
+  color: var(--whiteBase); 
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600; padding: 8px
+}
+.panel-reporte {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--whiteBase);
+  border: none;
+}
+.panel-reporte > .panel-heading {
+  background-color: var(--primario-pop-color);
+  height: 51px;
+  color: var(--whiteBase);
+  width: 700px;
+}
+
+.panel-reporte > .panel-heading > .cerrar {
+  cursor: pointer;
+}
+
+.panel-reporte > .panel-body {
+  padding: 0;
+}
+
+::ng-deep .mat-dialog-container {
+  overflow: hidden !important;
+}
+
+::ng-deep .modal-backdrop {
+  z-index: 999 !important;
+}

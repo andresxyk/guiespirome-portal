@@ -1,0 +1,96 @@
+<div class="row bg-img-login">
+    <div class="row" style="max-width: 100%;">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="row align-cols-login mg-left-login">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 522px;">
+                    <div class="row">
+                        <span class="titulo">
+                            Aplicativo de Espirometrías
+                        </span>
+                    </div>
+                    <div class="row">
+                        <span class="subtitulo" style="margin-top: 25px;">
+                            Herramienta para visualizar las actividades del Programa de uso de espirómetros  por los servicios de Salud en el Trabajo
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="row align-cols-login mg-right-login">
+                <mat-card class="p-5 card-style" [formGroup]="formGroup" *ngIf="!olvido">
+                    <div class="row login-card-container">
+                        <span class="ingresa">Ingresa tu información</span>
+                    </div>
+                    <div class="row error-msg" *ngIf="idIncorrect">{{msgError}}</div>
+                    <div class="form-group form-group-style">
+                        <div class="row">
+                            <label for="user" class="labels-campos">Usuario</label>
+                            <input
+                            appNoCopyPaste
+                            id="user" 
+                            type="text" 
+                            class="form-control width-campos input-user" 
+                            formControlName="user" 
+                            placeholder="Ingresa tu usuario" 
+                            maxlength="50" 
+                            (keypress)="alphaNumeric($event)">
+                        </div>
+                        <div class="row">
+                            
+                            <label for="password" class="labels-campos">Contraseña</label>
+                            <div class="input-group width-campos">
+                                <input
+                                appNoCopyPaste
+                                id="password" 
+                                [type]="show ? 'text' : 'password'" 
+                                class="form-control input-pass" 
+                                formControlName="pass" 
+                                placeholder="Ingresa tu contraseña" 
+                                maxlength="32" 
+                                (keypress)="noSpaces($event)">
+                                <span class="input-group-addon ojo" (click)="showPass()"><img src="../../../assets/icons/show_hide_pass_base.svg" alt="" style="width: 19px; height: 19px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex;">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 olvido-container">
+                            <span class="olvido" (click)="setOlvido()">¿Olvidaste tú contraseña?</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="access-button" [ngClass]="{'access-button-active':formGroup.valid}" (click)="login()">
+                                Ingresar
+                            </div>
+                        </div>
+                    </div>
+                    
+                </mat-card>
+                <mat-card class="p-5 card-style" [formGroup]="formGroup" *ngIf="olvido">
+                    <div class="row login-card-container">
+                        <span class="ingresa">Recuperar Contraseña</span>
+                    </div>
+                    <div class="row recuperar-containers icon-recuperar-container">
+                        <div>
+                            <img src="../../../assets/icons/fi_refresh-cw.svg">
+                        </div>
+                    </div>
+                    <div class="row recuperar-containers">
+                        <div class="aviso-recupera">
+                            <span>
+                                Favor de comunicarse con el administrador del Sistema Integral de Salud en el Trabajo (SIST) para verificar su nombre de usuario y contraseña.
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="row recuperar-containers btn-recuperar-container">
+                        <div class="access-button access-button-active btn-recuperar" (click)="setOlvido()">
+                            Aceptar
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</div>

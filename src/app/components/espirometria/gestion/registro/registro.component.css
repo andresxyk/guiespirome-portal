@@ -1,0 +1,104 @@
+
+.principal{
+    
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.btn {
+    padding: 11.5px 10px;
+    margin-left: 15px;
+}
+
+
+
+select::-ms-expand {
+    display: none;
+    /*Evita que se muestre la flecha por defecto en versiones de IE*/
+    padding-right: 32px;
+}
+
+select {
+    cursor: pointer;
+    background-image: url('../../../../../assets/icons/select-down.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-position-x: 98%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    font-family: Montserrat;
+    font-size: 12px;
+
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+
+    color: var(--c000);
+}
+
+
+.placeholder {
+    color: var(--c999);
+}
+
+select option:first-child {
+    color: var(--c999);
+}
+
+select option {
+    color: var(--c000);
+}
+
+ input.ng-invalid.ng-touched.ng-pristine {
+    border: 1px solid var(--rojo);
+    color: var(--rojo);
+    font-size: 12px;
+} 
+
+select.ng-invalid.ng-touched.ng-pristine {
+    border: 1px solid var(--rojo);
+    color: var(--rojo);
+    font-size: 12px;
+}
+
+
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--gris);
+    font-size: 14px;
+
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--c999);
+}
+
+
+
+select.form-control.option.error {
+    color: var(--rojo);
+    font-size: 12px;
+}
+
+.etiquetaSelect {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+
+
+}
+
+::ng-deep .mat-dialog-container {
+    overflow: hidden !important;
+  }
