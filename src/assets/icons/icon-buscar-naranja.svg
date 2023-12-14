@@ -1,0 +1,19 @@
+<svg width="75" height="73" viewBox="0 0 75 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#qphp6x6kna)">
+        <ellipse cx="37.217" cy="33.5" rx="32.971" ry="32.5" fill="#FEFCFE"/>
+    </g>
+    <ellipse cx="37.217" cy="33.5" rx="22.826" ry="22.5" fill="#FDEDE5"/>
+    <path d="m47.54 43.113-6.025-5.927a8.631 8.631 0 0 0 1.886-5.389c0-1.74-.524-3.44-1.504-4.887a8.898 8.898 0 0 0-4.006-3.24 9.045 9.045 0 0 0-5.156-.501 8.967 8.967 0 0 0-4.57 2.408 8.76 8.76 0 0 0-2.443 4.504 8.68 8.68 0 0 0 .508 5.083 8.826 8.826 0 0 0 3.287 3.948 9.018 9.018 0 0 0 4.959 1.483 8.918 8.918 0 0 0 5.466-1.859l6.013 5.939a1.116 1.116 0 0 0 .793.325 1.129 1.129 0 0 0 1.036-.683 1.086 1.086 0 0 0-.244-1.204zM27.782 31.797c0-1.305.393-2.58 1.128-3.665a6.673 6.673 0 0 1 3.004-2.43 6.784 6.784 0 0 1 3.868-.376 6.724 6.724 0 0 1 3.427 1.806 6.57 6.57 0 0 1 1.832 3.378 6.51 6.51 0 0 1-.381 3.812 6.62 6.62 0 0 1-2.465 2.962 6.763 6.763 0 0 1-3.72 1.111 6.743 6.743 0 0 1-4.732-1.932 6.55 6.55 0 0 1-1.961-4.666z" fill="#FF8329" stroke="#FF8329" stroke-width=".3"/>
+    <defs>
+        <filter id="qphp6x6kna" x=".246" y="0" width="73.941" height="73" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix values="0 0 0 0 0.976471 0 0 0 0 0.737255 0 0 0 0 0.576471 0 0 0 0.46 0"/>
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_813_82013"/>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow_813_82013" result="shape"/>
+        </filter>
+    </defs>
+</svg>

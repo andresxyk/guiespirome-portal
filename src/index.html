@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Espirometría</title>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <app-root></app-root>
+  <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+  <script>
+      nIntervId = setInterval(function () {
+        if (document.querySelector(".main-footer")) {
+          document.querySelector(".main-footer").remove();
+          clearInterval(nIntervId);
+        }
+      }, 1000);
+      nIntervId2 = setInterval(function () {
+        if (document.querySelector(".container")) {
+          const element = document.querySelector(".container");
+          element.classList.replace('container','container-fluid');
+          clearInterval(nIntervId2);
+        }
+      }, 1000);
+  </script>
+</body>
+
+</html>
